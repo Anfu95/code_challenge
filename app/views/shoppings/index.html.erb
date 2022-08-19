@@ -1,14 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>code challenge orve</title>
-  </head>
-  <body>
+
     <h1>Importación de archivo</h1>
     <div class="container">
-      <%= form_for(:shopping, :url=> {:controller => 'shoppings'}, :html => {:id => "import_file", :remote => true}, :method => 'post') do |f| %>
+      <%= form_for(:shopping, :url=> {:controller => 'shoppings', :action => 'create'}, :html => {:id => "import-file", :remote => false}, :method => 'post') do |f| %>
         <div class="mb-3">
           <label for="" class="form-label">Cargar archivo</label>
           <%= f.file_field :files%>
@@ -17,12 +10,13 @@
         <%= f.submit "Capturar"%>
       <% end %>
     </div>
-    <button class="show-btn">Mostrar alerta</button>
 
     <script>
-      $('.show-btn').on('click', function() {
-        alert("Esta es una prueba");
+    import * as d3 from "d3" 
+      $('#import-file').submit('click', function(e) {
+        e.preventDefault();
+        console.log("alto")
+        var stimuliArray = "";
+        file = $('#shopping_files').prop('files')
       });
     </script>
-  </body>
-</html>
